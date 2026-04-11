@@ -1,0 +1,45 @@
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="/" class="footer-wordmark">Accordia</a>
+    <p class="footer-copy">&copy; {new Date().getFullYear()} Accordia AI. Cape Town, South Africa.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-lg) 0 var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .footer-wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.03em;
+    color: var(--text-secondary);
+    transition: color 0.25s;
+  }
+
+  .footer-wordmark:hover {
+    color: var(--accent-primary);
+  }
+
+  .footer-copy {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+</style>

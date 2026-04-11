@@ -1,0 +1,163 @@
+---
+const benefits = [
+  {
+    icon: 'clock',
+    title: '24/7 Availability',
+    desc: 'Your AI assistant never sleeps. Customers get instant responses any time of day or night.',
+  },
+  {
+    icon: 'route',
+    title: 'Smart Routing',
+    desc: 'Conversations are automatically triaged and sent to the right person with full context.',
+  },
+  {
+    icon: 'plug',
+    title: 'Workflow Integration',
+    desc: 'Connect to your existing systems — CRM, ERP, ticketing — without ripping and replacing.',
+  },
+  {
+    icon: 'chart',
+    title: 'Real-time Insights',
+    desc: 'Dashboards that show what customers are asking, where bottlenecks are, and how to improve.',
+  },
+];
+---
+
+<section class="benefits section" id="benefits">
+  <div class="container">
+    <h2 class="benefits-heading">
+      Why <span class="text-accent">Accordia</span>
+    </h2>
+    <p class="benefits-lead">
+      Built for businesses that want more from their conversations.
+    </p>
+
+    <div class="benefits-grid">
+      {benefits.map((b) => (
+        <article class="benefit-card">
+          <div class="benefit-icon">
+            {b.icon === 'clock' && (
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="14" cy="14" r="11"/>
+                <polyline points="14 7 14 14 19 17"/>
+              </svg>
+            )}
+            {b.icon === 'route' && (
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7" cy="7" r="3"/><circle cx="21" cy="21" r="3"/>
+                <path d="M10 7h4a4 4 0 0 1 4 4v4"/>
+                <polyline points="15 18 18 15 21 18"/>
+              </svg>
+            )}
+            {b.icon === 'plug' && (
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 4v6M18 4v6M7 10h14a2 2 0 0 1 2 2v2a6 6 0 0 1-6 6h-6a6 6 0 0 1-6-6v-2a2 2 0 0 1 2-2z"/>
+                <path d="M14 20v5"/>
+              </svg>
+            )}
+            {b.icon === 'chart' && (
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="14" width="5" height="10" rx="1"/>
+                <rect x="11.5" y="8" width="5" height="16" rx="1"/>
+                <rect x="20" y="4" width="5" height="20" rx="1"/>
+              </svg>
+            )}
+          </div>
+          <h3>{b.title}</h3>
+          <p>{b.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.from('.benefit-card', {
+      autoAlpha: 0,
+      y: 50,
+      scale: 0.96,
+      stagger: 0.12,
+      duration: 0.65,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.benefits-grid', start: 'top 82%' },
+    });
+  });
+</script>
+
+<style>
+  .benefits-heading {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 0.4em;
+  }
+
+  .benefits-lead {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  @media (min-width: 768px) {
+    .benefits-heading,
+    .benefits-lead {
+      text-align: center;
+    }
+
+    .benefits-lead {
+      margin-inline: auto;
+      margin-bottom: var(--space-xl);
+    }
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .benefit-card {
+    padding: var(--space-md) var(--space-md) calc(var(--space-md) + 0.5rem);
+    background: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-lg);
+    transition: border-color 0.35s, box-shadow 0.35s, transform 0.35s var(--ease-out-expo);
+  }
+
+  .benefit-card:hover {
+    border-color: rgba(190, 255, 0, 0.18);
+    box-shadow: 0 0 40px rgba(190, 255, 0, 0.06);
+    transform: translateY(-4px);
+  }
+
+  .benefit-icon {
+    width: 44px;
+    height: 44px;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-sm);
+    padding: 8px;
+    background: rgba(190, 255, 0, 0.06);
+    border-radius: var(--radius-sm);
+  }
+
+  .benefit-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5em;
+  }
+
+  .benefit-card p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+</style>

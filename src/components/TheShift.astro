@@ -1,0 +1,65 @@
+<section class="shift section">
+  <div class="container">
+    <p class="shift-text" id="shift-text">
+      The world's most popular messaging platform is now your most powerful business tool.
+    </p>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const el = document.getElementById('shift-text');
+  if (el) {
+    const text = el.textContent!.trim();
+    el.innerHTML = text
+      .split(' ')
+      .map((w) => `<span class="shift-word">${w}&nbsp;</span>`)
+      .join('');
+
+    const mm = gsap.matchMedia();
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      gsap.from('.shift-word', {
+        autoAlpha: 0,
+        y: 18,
+        stagger: 0.045,
+        duration: 0.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.shift',
+          start: 'top 75%',
+        },
+      });
+    });
+  }
+</script>
+
+<style>
+  .shift {
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  .shift-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 4vw, 3.2rem);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    color: var(--text-secondary);
+    max-width: 20ch;
+    text-wrap: balance;
+  }
+
+  @media (min-width: 768px) {
+    .shift {
+      text-align: center;
+    }
+
+    .shift-text {
+      margin-inline: auto;
+      max-width: 22ch;
+    }
+  }
+</style>

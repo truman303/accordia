@@ -1,0 +1,180 @@
+<section class="how section dot-grid" id="how">
+  <div class="container">
+    <h2 class="how-heading">How it works</h2>
+
+    <div class="how-steps">
+      <article class="step step-1">
+        <span class="step-num">01</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 28l3-8A12 12 0 1 1 18 28H8z"/>
+            <circle cx="14" cy="17" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="18" cy="17" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="22" cy="17" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Connect</h3>
+        <p>Your customers are already on WhatsApp. Meet them there — no new apps, no friction.</p>
+      </article>
+
+      <div class="step-divider" aria-hidden="true">
+        <svg viewBox="0 0 60 20"><path d="M0 10h54l-6-6M54 10l-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <article class="step step-2">
+        <span class="step-num">02</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="18" r="12"/>
+            <circle cx="18" cy="18" r="5"/>
+            <line x1="18" y1="2" x2="18" y2="6"/>
+            <line x1="18" y1="30" x2="18" y2="34"/>
+            <line x1="2" y1="18" x2="6" y2="18"/>
+            <line x1="30" y1="18" x2="34" y2="18"/>
+          </svg>
+        </div>
+        <h3>Automate</h3>
+        <p>AI handles routine queries, routes conversations, and surfaces what matters to your team.</p>
+      </article>
+
+      <div class="step-divider" aria-hidden="true">
+        <svg viewBox="0 0 60 20"><path d="M0 10h54l-6-6M54 10l-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <article class="step step-3">
+        <span class="step-num">03</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 26 14 16 20 20 30 8"/>
+            <polyline points="24 8 30 8 30 14"/>
+          </svg>
+        </div>
+        <h3>Grow</h3>
+        <p>Your team focuses on high-value work while real-time insights reveal new opportunities.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.from('.step', {
+      autoAlpha: 0,
+      y: 40,
+      stagger: 0.18,
+      duration: 0.7,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.how-steps', start: 'top 80%' },
+    });
+
+    gsap.from('.step-divider', {
+      autoAlpha: 0,
+      scaleX: 0,
+      stagger: 0.15,
+      duration: 0.5,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.how-steps', start: 'top 80%' },
+    });
+  });
+</script>
+
+<style>
+  .how {
+    background: var(--bg-surface);
+    position: relative;
+  }
+
+  .how-heading {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: var(--space-lg);
+  }
+
+  @media (min-width: 768px) {
+    .how-heading {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+  }
+
+  .how-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: stretch;
+  }
+
+  @media (min-width: 900px) {
+    .how-steps {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0;
+    }
+  }
+
+  .step {
+    position: relative;
+    flex: 1;
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .step:hover {
+    border-color: rgba(190, 255, 0, 0.15);
+    box-shadow: 0 0 30px rgba(190, 255, 0, 0.05);
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--bg-surface);
+    -webkit-text-stroke: 1px var(--text-muted);
+    position: absolute;
+    top: 0.15em;
+    right: 0.3em;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .step-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .step h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5em;
+  }
+
+  .step p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .step-divider {
+    display: none;
+    align-items: center;
+    color: var(--text-muted);
+    width: 60px;
+    flex-shrink: 0;
+    padding-top: 4rem;
+  }
+
+  @media (min-width: 900px) {
+    .step-divider {
+      display: flex;
+    }
+  }
+</style>
