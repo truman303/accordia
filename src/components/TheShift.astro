@@ -16,7 +16,7 @@
     const text = el.textContent!.trim();
     el.innerHTML = text
       .split(' ')
-      .map((w) => `<span class="shift-word">${w}&nbsp;</span>`)
+      .map((w) => `<span class="shift-word">${w}</span>`)
       .join('');
 
     const mm = gsap.matchMedia();
@@ -42,14 +42,16 @@
   }
 
   .shift-text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em;
     font-family: var(--font-display);
     font-weight: 600;
     font-size: clamp(1.6rem, 4vw, 3.2rem);
     line-height: 1.25;
     letter-spacing: -0.025em;
     color: var(--text-secondary);
-    max-width: 20ch;
-    text-wrap: balance;
+    max-width: 42ch;
   }
 
   @media (min-width: 768px) {
@@ -58,8 +60,8 @@
     }
 
     .shift-text {
+      justify-content: center;
       margin-inline: auto;
-      max-width: 22ch;
     }
   }
 </style>
