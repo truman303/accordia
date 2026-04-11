@@ -1,0 +1,1 @@
+import{g as r}from"./index.CB87Sc6I.js";import{S as e}from"./ScrollTrigger.Cv03IO65.js";r.registerPlugin(e);const t=r.matchMedia();t.add("(prefers-reduced-motion: no-preference)",()=>{r.from(".benefit-card",{autoAlpha:0,y:50,scale:.96,stagger:.12,duration:.65,ease:"power2.out",scrollTrigger:{trigger:".benefits-grid",start:"top 82%"}})});

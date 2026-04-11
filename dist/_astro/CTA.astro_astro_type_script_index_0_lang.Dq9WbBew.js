@@ -1,0 +1,1 @@
+import{g as r}from"./index.CB87Sc6I.js";import{S as e}from"./ScrollTrigger.Cv03IO65.js";r.registerPlugin(e);const o=r.matchMedia();o.add("(prefers-reduced-motion: no-preference)",()=>{r.from(".cta-card",{autoAlpha:0,y:50,scale:.97,duration:.8,ease:"power2.out",scrollTrigger:{trigger:".cta",start:"top 75%"}})});
