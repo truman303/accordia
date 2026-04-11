@@ -75,7 +75,7 @@ The electric chartreuse (`#BEFF00`) nods to WhatsApp's green but electrified —
 
 ---
 
-## GSAP Hero Animation: "Chat Becomes Business"
+## GSAP Hero Animation: "AI Chat for Real Business Processes"
 
 The centerpiece — a choreographed GSAP timeline playing on load.
 
@@ -132,7 +132,7 @@ When `prefers-reduced-motion: reduce` is active:
 - CTA button: "Get Started" with accent glow
 
 ### 2. Hero Section
-- Left: Oversized headline — **"Chat becomes business."** (Clash Display 700, clamp 3–7rem)
+- Left: Oversized headline — **"Conversational AI for real business processes."** (Clash Display 700, clamp 3–7rem)
 - Left: Subtext — one sentence about 24/7 AI-powered conversations
 - Right: The GSAP animation canvas (SVG + positioned divs)
 - Full viewport height, slight diagonal gradient overlay
