@@ -11,5 +11,3 @@ As this new breed of conversational business apps emerges, Accordia is well posi
 Give us a call or drop us an email to learn more about how we can help you integrate conversational AI into your business workflows.
 
 Cape Town, South Africa
-
-:) :)
